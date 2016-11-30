@@ -6,6 +6,7 @@ import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  * Created by tranh on 30-Nov-16.
@@ -13,8 +14,11 @@ import java.io.IOException;
 public class GameWindow extends Frame {
     Image background;
     Image plane;
-    private int planeX=400;
-    private int planeY=300;
+    Image enemy;
+
+    private int planeX = 400;
+    private int planeY = 300;
+
     public GameWindow() {
         setVisible(true);
         setSize(800, 600);
@@ -58,6 +62,7 @@ public class GameWindow extends Frame {
         try {
             background = ImageIO.read(new File("resources/background.png"));
             plane = ImageIO.read(new File("resources/plane3.png"));
+
         } catch (IOException e) {
             System.out.println("Load Image fail!");
             e.printStackTrace();
@@ -73,19 +78,19 @@ public class GameWindow extends Frame {
                 System.out.println("keyPressed");
                 switch (e.getKeyCode()) {
                     case KeyEvent.VK_UP:
-                        planeY-=5;
+                        planeY -= 5;
                         repaint();
                         break;
                     case KeyEvent.VK_DOWN:
-                        planeY+=5;
+                        planeY += 5;
                         repaint();
                         break;
                     case KeyEvent.VK_LEFT:
-                        planeX-=5;
+                        planeX -= 5;
                         repaint();
                         break;
                     case KeyEvent.VK_RIGHT:
-                        planeX+=5;
+                        planeX += 5;
                         repaint();
                         break;
                 }
@@ -102,8 +107,7 @@ public class GameWindow extends Frame {
     @Override
     public void paint(Graphics g) {
         g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), null);
-
-        g.drawImage(plane, planeX,planeY, 70,50,null);
+        g.drawImage(plane, planeX, planeY, 70, 50, null);
 
     }
 }

@@ -6,6 +6,6 @@ import java.io.IOException;
 public class Program {
     public static void main(String[] args) {
         System.out.println("Hello there!");
-        GameWindow gameWindow=new GameWindow();
+        Game game=new Game();
     }
 }
