@@ -19,6 +19,7 @@ public class Game extends Frame {
     Image background;
     ArrayList<Enemy> enemies = new ArrayList<>();
     Player player = new Player();
+    Player player1=new Player();
 
 
     @Override
@@ -26,6 +27,7 @@ public class Game extends Frame {
         g.drawImage(background, 0, 0, this.getWidth(), this.getHeight(), null);
         //g.drawImage(player.getImage(), x*this.getWidth(),  y*this.getHeight(), null);
         g.drawImage(player.getImage(), player.getX(), player.getY(), 70, 50, null);
+        g.drawImage(player1.getImage(), player1.getX(), player1.getY(), 70, 50, null);
         for (int i = 0; i < enemies.size(); i++) {
             enemies.get(i).autoMove();
             if (enemies.get(i).getY() < 50) {
@@ -78,12 +80,15 @@ public class Game extends Frame {
             }
         });
         player.setX(400);
-        player.setY(300);
+        player.setY(500);
+        player1.setX(700);
+        player1.setY(500);
         int w, h;
 
         try {
             background = ImageIO.read(new File("resources/background.png"));
             player.setImage("resources/plane3.png");
+            player1.setImage("resources/plane2.png");
             repaint();
         } catch (IOException e) {
             e.printStackTrace();
@@ -191,6 +196,22 @@ public class Game extends Frame {
                         break;
                     case KeyEvent.VK_RIGHT:
                         player.moveRight();
+                        repaint();
+                        break;
+                    case KeyEvent.VK_W:
+                        player1.moveUp();
+                        repaint();
+                        break;
+                    case KeyEvent.VK_S:
+                        player1.moveDown();
+                        repaint();
+                        break;
+                    case KeyEvent.VK_A:
+                        player1.moveLeft();
+                        repaint();
+                        break;
+                    case KeyEvent.VK_D:
+                        player1.moveRight();
                         repaint();
                         break;
                 }
