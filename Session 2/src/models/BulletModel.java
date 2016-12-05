@@ -1,16 +1,11 @@
-package model;
+package models;
 
 /**
- * Created by tranh on 04-Dec-16.
+ * Created by tranh on 05-Dec-16.
  */
 public class BulletModel {
     private int x;
     private int y;
-
-    public BulletModel(int x, int y) {
-        this.x = x;
-        this.y = y;
-    }
 
     public int getX() {
         return x;
@@ -27,9 +22,16 @@ public class BulletModel {
     public void setY(int y) {
         this.y = y;
     }
-    public void move(int dx,int dy){
-        this.x+=dx;
-        this.y+=dy;
+
+    public BulletModel(int x, int y) {
+
+        this.x = x;
+        this.y = y;
     }
 
+    public void move(int dx, int dy) {
+        this.x += dx;
+        this.y += dy;
+    }
 }
+

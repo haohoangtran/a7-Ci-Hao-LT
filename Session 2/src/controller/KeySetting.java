@@ -1,7 +1,7 @@
-package controllers;
+package controller;
 
 /**
- * Created by tranh on 03-Dec-16.
+ * Created by tranh on 05-Dec-16.
  */
 public class KeySetting {
     private int keyUp;
@@ -9,15 +9,7 @@ public class KeySetting {
     private int keyLeft;
     private int keyRight;
 
-    public KeySetting(int keyUp, int keyDown, int keyLeft, int keyRight) {
-        this.keyUp = keyUp;
-        this.keyDown = keyDown;
-        this.keyLeft = keyLeft;
-        this.keyRight = keyRight;
-    }
-
     public int getKeyUp() {
-
         return keyUp;
     }
 
@@ -46,6 +38,13 @@ public class KeySetting {
     }
 
     public void setKeyRight(int keyRight) {
+        this.keyRight = keyRight;
+    }
+
+    public KeySetting(int keyUp, int keyDown, int keyLeft, int keyRight) {
+        this.keyUp = keyUp;
+        this.keyDown = keyDown;
+        this.keyLeft = keyLeft;
         this.keyRight = keyRight;
     }
 }

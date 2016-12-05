@@ -1,7 +1,7 @@
-package model;
+package models;
 
 /**
- * Created by tranh on 03-Dec-16.
+ * Created by tranh on 05-Dec-16.
  */
 public class PlaneModel {
     private int x;
@@ -24,6 +24,7 @@ public class PlaneModel {
     }
 
     public PlaneModel(int x, int y) {
+
         this.x = x;
         this.y = y;
     }

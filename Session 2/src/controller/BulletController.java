@@ -1,13 +1,13 @@
-package controllers;
+package controller;
 
-import model.BulletModel;
+import models.BulletModel;
 import views.BulletView;
 
 import java.awt.*;
 import java.awt.event.KeyEvent;
 
 /**
- * Created by tranh on 04-Dec-16.
+ * Created by tranh on 05-Dec-16.
  */
 public class BulletController {
     private BulletModel bulletModel;
@@ -29,16 +29,17 @@ public class BulletController {
         this.bulletView = bulletView;
     }
 
-
     public BulletController(BulletModel bulletModel, BulletView bulletView) {
+
         this.bulletModel = bulletModel;
         this.bulletView = bulletView;
+    }
 
+    public void draw(Graphics g) {
+        bulletView.draw(g, bulletModel);
     }
-    public void keyPress(KeyEvent e){
-            bulletModel.move(0,-5);
-    }
-    public void draw(Graphics g){
-        bulletView.draw(g,bulletModel);
+
+    public void keyPress(KeyEvent e) {
+        bulletModel.move(0, -5);
     }
 }
