@@ -59,9 +59,9 @@ public class PlaneController extends Controller implements Body{
     @Override
     public void onContact(Body other) {
 
-        System.out.println("huhu ");
         if (other instanceof BulletEnemy||other instanceof EnemyController){
             this.model.setAlive(false);
+            System.out.println("Game Over!");
         }
     }
 }
