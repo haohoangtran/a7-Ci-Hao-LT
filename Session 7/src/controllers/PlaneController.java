@@ -1,6 +1,7 @@
 package controllers;
 
 import controllers.enemies.EnemyBulletController;
+import controllers.enemies.EnemyController;
 import controllers.manangers.BodyManager;
 import controllers.manangers.ControllerManager;
 import models.Model;
@@ -114,6 +115,18 @@ public class PlaneController extends Controller implements Body {
 
             this.getModel().setAlive(false);
 
+        }
+        if (other instanceof BombController){
+            for (int i = 0; i < BodyManager.instance.getBodies().size(); i++) {
+                if (BodyManager.instance.getBodies().get(i) instanceof EnemyController) {
+                    int x = model.getMidX() - other.getModel().getMidX();
+                    int y = model.getMidY() - other.getModel().getMidY();
+                    double r = Math.sqrt(x * x + y * y);
+                    if (r < 200) {
+                        BodyManager.instance.getBodies().get(i).getModel().setAlive(false);
+                    }
+                }
+            }
         }
     }
 

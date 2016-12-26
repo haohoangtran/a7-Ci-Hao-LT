@@ -26,7 +26,7 @@ public class GameWindow extends Frame implements Runnable {
     BufferedImage backBuffer;
     GameSetting gameSetting;
     boolean gameOn = true;
-    int countPlane=20;
+    int countBomb=0;
     Vector<BaseController> controllers;
 
     public GameWindow() {
@@ -39,6 +39,7 @@ public class GameWindow extends Frame implements Runnable {
         controllers.add(PlaneController.instance);
         controllers.add(BodyManager.instance);
         controllers.add(ControllerManager.enemyBullet);
+        controllers.add(BombController.create(300,0));
 
         setVisible(true);
         setSize(gameSetting.getWidth(), gameSetting.getHeight());
